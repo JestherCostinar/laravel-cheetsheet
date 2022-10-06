@@ -17,7 +17,7 @@ Debugbar package will be added through command line interface. You IDE has integ
 composer require barryvdh/laravel-debugbar --dev
 ```
 
-> Note, "<em><strong>Before<strong></em>" keywork is use to specifically view the package in development mode.
+> Note, "<em><strong>--dev<strong></em>" keywork is use to specifically view the package in development mode.
 
 - You may create you laravel project via composer command:
 ```
