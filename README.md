@@ -56,7 +56,17 @@ composer require barryvdh/laravel-debugbar --dev
  laravel new example-app
 ```
 
-Congratulations, you have now create your first laravel project.🥳
+## 3. Getting Started with Laravel
+
+The env file gives a very convenient way of manipulating the behavior of our application in these different environments. configuration of database connection, mailer, aws can be done in config file.
+
+
+### Two (2) important variables in config file
+- APP_KEY
+- APP_DEBUG
+
+This 2 variables are used for debug purpose and the app_key is the unique application key for your project.
+
 
 
 ## 👨‍💻Contact Me 🚀🔵
