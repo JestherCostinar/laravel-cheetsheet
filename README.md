@@ -1,6 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## Getting Started with Laravel
+
+## 1. Getting Started with Laravel
 
 Before anything else, make sure PHP and Composer are installed on your local workstation before starting your first Laravel project. PHP and Composer can be installed via Homebrew if you are working on macOS development and in Windows manually installed xampp and composer on browser. Additionally, I advise setting up NPM and Node.
 
@@ -26,6 +27,46 @@ Alternatively, you can start your Laravel projects by using Composer to globally
 ```
 
 Congratulations, you have now create your first laravel project.🥳
+<hr>
+
+
+## 2. Laravel Debugbar
+
+Laravel Debugbar is a php package that allows you to quickly debug your application during development. PHP debugbar includes a service provider to register a debugbar in the browser.
+
+- Laravel Debugbar Documentation: [Laravel-Debugbar](https://github.com/barryvdh/laravel-debugbar)
+
+After you have installed PHP and Composer, you may create a new Laravel in different ways.
+
+## Setting up Laravel Debugbar
+
+Debugbar package will be added through command line interface. You IDE has integrated terminal that allows you to perform and execute commands.
+
+- In order to install Laravel-Debugbar. Perform this command in terminal.
+```
+composer require barryvdh/laravel-debugbar --dev
+```
+
+> Note, "<em><strong>--dev<strong></em>" keywork is use to specifically view the package in development mode.
+
+- You may create you laravel project via composer command:
+```
+ composer global require laravel/installer
+ 
+ laravel new example-app
+```
+
+## 3. Getting Started with Laravel
+
+The env file gives a very convenient way of manipulating the behavior of our application in these different environments. configuration of database connection, mailer, aws can be done in config file.
+
+
+### Two (2) important variables in config file
+- APP_KEY
+- APP_DEBUG
+
+This 2 variables are used for debug purpose and the app_key is the unique application key for your project.
+
 
 
 ## 👨‍💻Contact Me 🚀🔵
