@@ -15,28 +15,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 // GET
-Route::get('/blog', [PostsController::class, 'index']);
-Route::get('/blog/{id}', [PostsController::class, 'show'])->whereNumber('id');
-Route::get('/blog/{name}', [PostsController::class, 'show'])->whereAlpha('name');
+Route::get('/blog', [PostsController::class, 'index'])->name('blog.index');
+// Route::get('/blog/{id}', [PostsController::class, 'show'])->whereNumber('id');
+// Route::get('/blog/{name}', [PostsController::class, 'show'])->whereAlpha('name');
 
 
-// POST
-Route::get('/blog/create', [PostsController::class, 'create']);
-Route::post('/blog', [PostsController::class, 'store']);
+// // POST
+// Route::get('/blog/create', [PostsController::class, 'create']);
+// Route::post('/blog', [PostsController::class, 'store']);
 
-// PUT or PATCH
-Route::get('/blog/edit/{id}', [PostsController::class, 'edit']);
-Route::patch('/blog/{id}', [PostsController::class, 'update']);
+// // PUT or PATCH
+// Route::get('/blog/edit/{id}', [PostsController::class, 'edit']);
+// Route::patch('/blog/{id}', [PostsController::class, 'update']);
 
-// DELETE
-Route::delete('/blog/{id}', [PostsController::class, 'destroy']);
+// // DELETE
+// Route::delete('/blog/{id}', [PostsController::class, 'destroy']);
 
-// Multiple HTTP verbs
-Route::match(['GET', 'POST'], '/blog', [PostsController::class, 'index']);
-Route::any('/blog', [PostsController::class, 'index']);
+// // Multiple HTTP verbs
+// Route::match(['GET', 'POST'], '/blog', [PostsController::class, 'index']);
+// Route::any('/blog', [PostsController::class, 'index']);
 
-// Return only a view
-Route::view('/blog', 'blog.index', ['name' => 'Jesther Costinar']);
+// // Return only a view
+// Route::view('/blog', 'blog.index', ['name' => 'Jesther Costinar']);
 
 
 // Route::resource('blog', PostsController::class);

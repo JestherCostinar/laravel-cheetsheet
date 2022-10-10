@@ -153,14 +153,26 @@ Route::get('/blog/{id}', [PostsController::class, 'show'])->whereNumber('id');
 ```
 > The code above is the same with <em><strong>Route::get('/blog/{id}', [PostsController::class, 'show'])->where('id', '[0-9]+');
 <strong></em>". Laravel have this feature so that you will just type the method than the regex.
-```
+
 
 - Routes with String RegEx:
 ```
 Route::get('/blog/{name}', [PostsController::class, 'show'])->whereAlpha('name');
-
-
 ```
+
+## 9 Named Route
+Laravel comes up with the cool features that will makes the anchor tag link dynamic by naming each route.
+
+- Go to your web.php file then chain your route to your href tag
+```
+Route::get('/blog', [PostsController::class, 'index'])->name('blog.index');
+```
+
+- Now, go to your blade php file to dynamically changes the href link bases on your named route.
+```
+<a href={{ route('blog.index') }}>Blog</a>
+```
+> TIPS: Whenever you are working in an application where you want to make process of changing dynamic use named route.
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
