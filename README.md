@@ -144,7 +144,7 @@ Route::get('/blog/{id}', [PostsController::class, 'show']);
 ```
 > Note, the "<em><strong>{id}<strong></em>" parameter act as wildcard in your uri.
 
-## 8 Routes with Expressions
+## 8. Routes with Expressions
 Laravel has a cool feature which you can add regex pattern for your route parameter.
 
 - Routes with Expression Example:
@@ -160,7 +160,7 @@ Route::get('/blog/{id}', [PostsController::class, 'show'])->whereNumber('id');
 Route::get('/blog/{name}', [PostsController::class, 'show'])->whereAlpha('name');
 ```
 
-## 9 Named Route
+## 9. Named Route
 Laravel comes up with the cool features that will makes the anchor tag link dynamic by naming each route.
 
 - Go to your web.php file then chain your route to your href tag
@@ -173,6 +173,30 @@ Route::get('/blog', [PostsController::class, 'index'])->name('blog.index');
 <a href={{ route('blog.index') }}>Blog</a>
 ```
 > TIPS: Whenever you are working in an application where you want to make process of changing dynamic use named route.
+
+## 10. Route prefixes
+Whenever you are working with a routes with same pattern much better to group it.
+
+```
+Route::prefix('/blog')->group(function() {
+Route::get('/', [PostsController::class, 'index'])->name('blog.index');
+Route::get('/{id}', [PostsController::class, 'show'])->whereNumber('id');
+
+// POST
+Route::get('/create', [PostsController::class,'create']);
+Route::post('/blog', [PostsController::class, 'store']);
+
+// PUT or PATCH
+Route::get('/edit/{id}', [PostsController::class, 'edit']);
+Route::patch('/{id}', [PostsController::class, 'update']);
+
+// DELETE
+Route::delete('/{id}', [PostsController::class, 'destroy']);
+
+});
+```
+> As you can see, the routes group with the prefix of blog. The root of everyroutes in the group is the prefix blog.
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
