@@ -77,6 +77,14 @@ php artisan make:controller UserController --resource
 ```
 > Note, "<em><strong>--resource<strong></em>" keywork is optional. The purpose of it is to generate a contoller with complete method package.
 
+## 5. Single Action Controller
+
+In php, we have "<em><strong>__invoke()<strong></em>" magic method that will make a class run as a function. Whenever you use one single method inside controller I recommend to use __invoke() method.
+
+- In order to make a controller with __invoke() method, artisan can make the job easily by just typing the command:.
+```
+php artisan make:controller HomeController --invokable
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

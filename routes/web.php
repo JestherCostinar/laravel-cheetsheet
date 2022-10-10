@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostsController;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    Debugbar::info('asdas');
-    return view('welcome');
-});
+Route::resource('blog', PostsController::class);
+
+// Route for invoke method
+Route::get('/', HomeController::class);
