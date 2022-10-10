@@ -134,6 +134,15 @@ Route::any('/blog', [PostsController::class, 'index']);
 Route::view('/blog', 'blog.index', ['name' => 'Jesther Costinar']);
 ```
 
+## 7. Route Parameter
+
+In laravel with the help of Route Parameter you don't need to define a static id in our route URI.
+
+- Route Parameter example 
+```
+Route::get('/blog/{id}', [PostsController::class, 'show']);
+```
+> Note, the "<em><strong>{id}<strong></em>" parameter act as wildcard in your uri.
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
