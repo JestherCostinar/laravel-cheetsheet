@@ -86,6 +86,55 @@ In php, we have "<em><strong>__invoke()<strong></em>" magic method that will mak
 php artisan make:controller HomeController --invokable
 ```
 
+## 6. Routing
+
+In laravel, We process all requests with the helps of routes. Laravel provide 6 route option which we can use in our web.php file.
+
+### Six (6) available route method
+- GET - Request a resource
+- POST - Create a new resource
+- PUT - Update a resource
+- PATCH - Modify a resource
+- Delete - Delete the resource
+- OPTIONS - Ask the server which verbs are allowed
+
+We can used the following route method via:
+
+- GET 
+```
+Route::get('/blog', [PostsController::class, 'index']);
+Route::get('/blog/1', [PostsController::class, 'show']);
+```
+
+- POST 
+```
+Route::get('/blog/create', [PostsController::class, 'create']);
+Route::post('/blog', [PostsController::class, 'store']);
+```
+
+- PUT or PATCH
+```
+Route::get('/blog/edit/1', [PostsController::class, 'edit']);
+Route::patch('/blog/1', [PostsController::class, 'update']);
+```
+
+- DELETE
+```
+Route::delete('/blog/1', [PostsController::class, 'destroy']);
+```
+
+- Multiple HTTP verbs
+```
+Route::match(['GET', 'POST'], '/blog', [PostsController::class, 'index']);
+Route::any('/blog', [PostsController::class, 'index']);
+```
+
+- Return only a view
+```
+Route::view('/blog', 'blog.index', ['name' => 'Jesther Costinar']);
+```
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
