@@ -56,7 +56,7 @@ composer require barryvdh/laravel-debugbar --dev
  laravel new example-app
 ```
 
-## 3. Getting Started with Laravel
+## 3. Config and ENV file
 
 The env file gives a very convenient way of manipulating the behavior of our application in these different environments. configuration of database connection, mailer, aws can be done in config file.
 
@@ -67,6 +67,15 @@ The env file gives a very convenient way of manipulating the behavior of our app
 
 This 2 variables are used for debug purpose and the app_key is the unique application key for your project.
 
+## 4. Controller
+
+Controller are responsible to determine how the HTTP request should be handled. It also serve as the medium between model, view, and other resources.
+
+- In order to make a controller, artisan can make the job easily by just typing the command:.
+```
+php artisan make:controller UserController --resource
+```
+> Note, "<em><strong>--resource<strong></em>" keywork is optional. The purpose of it is to generate a contoller with complete method package.
 
 
 ## 👨‍💻Contact Me 🚀🔵
