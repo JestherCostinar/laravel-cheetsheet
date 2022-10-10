@@ -197,6 +197,16 @@ Route::delete('/{id}', [PostsController::class, 'destroy']);
 ```
 > As you can see, the routes group with the prefix of blog. The root of everyroutes in the group is the prefix blog.
 
+## 11. Fallback Route
+Whenener fallback Route use in an application, it override the 404 page.
+
+- To use fallback route. Define the following code.
+```
+Route::fallback(FallbackController::class);
+```
+> NOTE: fallback route should always at the bottom of the all route
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/

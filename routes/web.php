@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
 use Barryvdh\Debugbar\Facades\Debugbar;
@@ -61,3 +62,4 @@ Route::prefix('/blog')->group(function() {
 // Route for invoke method
 // Route::get('/', HomeController::class);
 
+Route::fallback(FallbackController::class);
