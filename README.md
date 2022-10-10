@@ -144,6 +144,23 @@ Route::get('/blog/{id}', [PostsController::class, 'show']);
 ```
 > Note, the "<em><strong>{id}<strong></em>" parameter act as wildcard in your uri.
 
+## 8 Routes with Expressions
+Laravel has a cool feature which you can add regex pattern for your route parameter.
+
+- Routes with Expression Example:
+```
+Route::get('/blog/{id}', [PostsController::class, 'show'])->whereNumber('id');
+```
+> The code above is the same with <em><strong>Route::get('/blog/{id}', [PostsController::class, 'show'])->where('id', '[0-9]+');
+<strong></em>". Laravel have this feature so that you will just type the method than the regex.
+```
+
+- Routes with String RegEx:
+```
+Route::get('/blog/{name}', [PostsController::class, 'show'])->whereAlpha('name');
+
+
+```
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
