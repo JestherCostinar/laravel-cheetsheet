@@ -286,9 +286,9 @@ $posts = [
             ]
         ];
 
-        foreach($posts as $key => $value) {
+foreach($posts as $key => $value) {
             Post::create($value);
-        }
+}
 ```
 > NOTE: Keep your seeders clean with real data.
 
@@ -357,11 +357,14 @@ php artisan db:seed
 > The result will generate 100 fake data.
 
 
+## The difference between seeder and factory. 
 ```
-> The difference between seeder and factory. 
 Seeder is used to populate tables with data
-while, Factory is the good place to populate table with fake data
+while, 
+Factory is the good place to populate table with fake data
 ```
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
