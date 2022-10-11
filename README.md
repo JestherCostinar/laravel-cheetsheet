@@ -222,6 +222,8 @@ DB_PASSWORD=
 
 Migration is like version control for your database. It helps allow the team to modify the database as well as share it across domain and plaform.
 
+Migration allows us to create table in the database
+
 > In laravel, Migration refer as a Table.
 
 In order to create a migration, you need to perform the make:migration command instead manually creating a migation.
@@ -253,7 +255,9 @@ php artisan migration:refresh
 > This will refresh each single migration.
 
 ## 14. Seeders
-In laravel, You don't need to add rows in your database manually because seeders will do the job for us. Seeders in laravel is important when generating data for our database.
+In laravel, You don't need to add rows in your database manually because seeders will do the job for us.
+
+Seeders in laravel is important when generating dummy data for our database. 
 
 In order to create a seeder, perform the command:
 ```
@@ -311,6 +315,53 @@ php artisan migrate --seed
 ```
 >It will migrate all tables and run our seeder.
 
+
+## 14. Factory
+In laravel, factory is a convinient place to define how your model should be populated with fake data.
+ 
+Factory allow to build fake data for our models.
+
+- In order to create a seeder file:
+```
+php artisan make:factory PostFactory
+```
+
+Now, in order to insert dummy data in our factory we can use faker libray and perform the following code in our factory file:
+
+```
+public function definition()
+{
+    return [
+        'title' => $this->faker->unique()->sentence(),
+        'excerpt' => $this->faker->realText($maxNbChars = 50),
+        'body' => $this->faker->text(),
+        'image_path' => $this->faker->imageUrl(640, 480),
+        'is_published' => 1,
+        'min_to_read' => $this->faker->numberBetween(1, 10),
+    ];
+}
+```
+
+Navigate to "<em><strong>DatabaseSeeder.php<strong></em>" and add the following code.
+```
+public function run()
+{
+    Post::factory(100)->create();
+}
+```
+
+Now, it's time for run our factory class.
+```
+php artisan db:seed
+```
+> The result will generate 100 fake data.
+
+
+```
+> The difference between seeder and factory. 
+Seeder is used to populate tables with data
+while, Factory is the good place to populate table with fake data
+```
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
