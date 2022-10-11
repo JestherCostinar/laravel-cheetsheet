@@ -179,20 +179,19 @@ Whenever you are working with a routes with same pattern much better to group it
 
 ```
 Route::prefix('/blog')->group(function() {
-Route::get('/', [PostsController::class, 'index'])->name('blog.index');
-Route::get('/{id}', [PostsController::class, 'show'])->whereNumber('id');
+    Route::get('/', [PostsController::class, 'index'])->name('blog.index');
+    Route::get('/{id}', [PostsController::class, 'show'])->whereNumber('id');
 
-// POST
-Route::get('/create', [PostsController::class,'create']);
-Route::post('/blog', [PostsController::class, 'store']);
+    // POST
+    Route::get('/create', [PostsController::class,'create']);
+    Route::post('/blog', [PostsController::class, 'store']);
 
-// PUT or PATCH
-Route::get('/edit/{id}', [PostsController::class, 'edit']);
-Route::patch('/{id}', [PostsController::class, 'update']);
+    // PUT or PATCH
+    Route::get('/edit/{id}', [PostsController::class, 'edit']);
+    Route::patch('/{id}', [PostsController::class, 'update']);
 
-// DELETE
-Route::delete('/{id}', [PostsController::class, 'destroy']);
-
+    // DELETE
+    Route::delete('/{id}', [PostsController::class, 'destroy']);
 });
 ```
 > As you can see, the routes group with the prefix of blog. The root of everyroutes in the group is the prefix blog.
@@ -206,6 +205,52 @@ Route::fallback(FallbackController::class);
 ```
 > NOTE: fallback route should always at the bottom of the all route
 
+## 12. Setting up laravel database
+
+- Open the .env file and configure the database access
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravelapp
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+## 13. Migration
+
+Migration is like version control for your database. It helps allow the team to modify the database as well as share it across domain and plaform.
+
+> In laravel, Migration refer as a Table.
+
+In order to create a migration, you need to perform the make:migration command instead manually creating a migation.
+
+```
+php artisan make:migration create_example_table
+```
+
+Once you've done creating a table and  the column inside the "<em><strong>up()<strong></em>" method. You need to perform a artisan command that will run all the "<em><strong>up()<strong></em>" method that haven't migrate recently.
+
+```
+php artisan migrate
+```
+
+### Some useful migration command
+```
+php artisan migration:status
+```
+> This will check each migration status.
+
+```
+php artisan migration:reset
+```
+> This will rollback/reset each single migration.
+
+```
+php artisan migration:refresh
+```
+> This will refresh each single migration.
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
