@@ -252,6 +252,65 @@ php artisan migration:refresh
 ```
 > This will refresh each single migration.
 
+## 14. Seeders
+In laravel, You don't need to add rows in your database manually because seeders will do the job for us. Seeders in laravel is important when generating data for our database.
+
+In order to create a seeder, perform the command:
+```
+php artisan make:seeder ExampleTableSeeder
+```
+
+In order the generate data, perform the following command inside the "<em><strong>run()<strong></em>" method.
+
+```
+$posts = [
+            [
+                'title' => 'Post One',
+                'excerpt' => 'Summary of Post One',
+                'body' => 'Body of Post One',
+                'image_path' => 'Empty',
+                'is_published' => false,
+                'min_to_read' => 2,
+            ],
+            [
+                'title' => 'Post Two',
+                'excerpt' => 'Summary of Post Two',
+                'body' => 'Body of Post Two',
+                'image_path' => 'Empty',
+                'is_published' => false,
+                'min_to_read' => 2,
+            ]
+        ];
+
+        foreach($posts as $key => $value) {
+            Post::create($value);
+        }
+```
+> NOTE: Keep your seeders clean with real data.
+
+Now, Navigate to "<em><strong>DatabaseSeeder.php<strong></em>" and add the following code.
+```
+public function run()
+{
+    $this->call(PostsTableSeeder::class);
+}
+```
+
+Now, it's time for run our seeder.
+
+### Two option to run seeder
+- Run Only the Seeder
+```
+php artisan db:seed
+```
+> It will run your seeder without migration.
+
+- Run Migrate and Seeder
+```
+php artisan migrate --seed
+```
+>It will migrate all tables and run our seeder.
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
