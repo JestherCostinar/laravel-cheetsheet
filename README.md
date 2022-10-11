@@ -356,6 +356,7 @@ php artisan db:seed
 ```
 > The result will generate 100 fake data.
 
+<hr>
 
 ## The difference between seeder and factory. 
 ```
