@@ -316,7 +316,7 @@ php artisan migrate --seed
 >It will migrate all tables and run our seeder.
 
 
-## 14. Factory
+## 15. Factory
 In laravel, factory is a convinient place to define how your model should be populated with fake data.
  
 Factory allow to build fake data for our models.
