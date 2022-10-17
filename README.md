@@ -365,6 +365,9 @@ while,
 Factory is the good place to populate table with fake data
 ```
 
+## 16. Query Builder
+Query Builder is the core of laravel database functionality. Query Builder use method chaining to make it use as easy as possible by just calling the method.
+
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
