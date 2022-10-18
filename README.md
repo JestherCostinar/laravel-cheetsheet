@@ -429,7 +429,7 @@ $posts = DB::table('posts')
         ->get();
 ```
 
--SELECTING ONE (1) DATA in Method Chaining
+- SELECTING ONE (1) DATA in Method Chaining
 ```
 $posts = DB::table('posts')
         ->where('id', 100)
@@ -441,6 +441,18 @@ $posts = DB::table('posts')
 - first() method - Return with limit of 1
 - find() method - Return the specific value inside the find method
 - count() method - Return the row count
+- sum()
+
+## 17. Installing Tailwind
+
+To install tailwind in laravel project using CLI, your system atleast have
+- Node
+- NPM
+
+Now, to install tailwind. perform this code in CLI.
+```
+npm install -D tailwindcss postcss autoprefixer
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

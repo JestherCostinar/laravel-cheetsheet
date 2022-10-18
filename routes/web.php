@@ -62,4 +62,5 @@ Route::prefix('/blog')->group(function() {
 // Route for invoke method
 // Route::get('/', HomeController::class);
 
+Route::get('/', [HomeController::class, 'index']);
 Route::fallback(FallbackController::class);
