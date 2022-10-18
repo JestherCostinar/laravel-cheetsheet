@@ -368,6 +368,28 @@ Factory is the good place to populate table with fake data
 ## 16. Query Builder
 Query Builder is the core of laravel database functionality. Query Builder use method chaining to make it use as easy as possible by just calling the method.
 
+### Some example of CRUD functionality using Query builder
+
+- SELECT Statement
+```
+$posts = DB::select('SELECT * FROM posts WHERE id = :id', [':id' => 1]);
+```
+
+- CREATE Statement
+```
+$posts = DB::insert('INSERT INTO posts (title, excerpt, body, image_path, is_published, min_to_read)
+VALUES(?, ?, ?, ?, ?, ?)', ['Title Sample', 'Excerpt Sample', 'Body Sample', 'Image Path Sample', true, 1] );
+```
+
+- UPDATE Statement
+```
+$posts = DB::update('UPDATE posts SET body = ? where id = ?', ['Body [UPDATED]', 104]);;
+```
+
+- DELETE Statement
+```
+$posts = DB::delete('DELETE FROM posts WHERE id = ?', [104]);
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

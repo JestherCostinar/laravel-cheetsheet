@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use VARIANT;
 
 class PostsController extends Controller
 {
@@ -14,8 +16,11 @@ class PostsController extends Controller
      */
     public function index()
     {
+        $posts = DB::delete('DELETE FROM posts WHERE id = ?', [104]);
+
+        dd($posts);
+
         return view('blog.index');
-        $posts = DB::select('select * from users where active = ?', [1])
     }
 
     /**
