@@ -16,7 +16,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::delete('DELETE FROM posts WHERE id = ?', [104]);
+        $posts = DB::table('posts')
+            ->where('is_published', true)
+            ->where('id', '>', 50)
+            ->get();
 
         dd($posts);
 

@@ -391,6 +391,16 @@ $posts = DB::update('UPDATE posts SET body = ? where id = ?', ['Body [UPDATED]',
 $posts = DB::delete('DELETE FROM posts WHERE id = ?', [104]);
 ```
 
+### Chaining Method in Query builder
+```
+$posts = DB::table('posts')
+            ->where('is_published', true)
+            ->where('id', '>', 50)
+            ->get();
+```
+
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
