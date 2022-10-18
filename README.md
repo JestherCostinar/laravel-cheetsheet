@@ -391,15 +391,56 @@ $posts = DB::update('UPDATE posts SET body = ? where id = ?', ['Body [UPDATED]',
 $posts = DB::delete('DELETE FROM posts WHERE id = ?', [104]);
 ```
 
+<hr>
+
 ### Chaining Method in Query builder
 ```
 $posts = DB::table('posts')
-            ->where('is_published', true)
-            ->where('id', '>', 50)
-            ->get();
+        ->where('is_published', true)
+        ->where('id', '>', 50)
+        ->get();
+```
+>whereBetween('Column Name', [from, to])
+>whereNotBetween('Column Name', [from, to])
+>whereIn('Column Name', [LIST OF VALUE])
+>whereNull('Column Name')
+>whereNotNull('Column Name')
+
+- SELECT DISTINCT in Method Chaining
+```
+$posts = DB::table('posts')
+        ->select('min_to_read')
+        ->distinct('id', '>', 50)
+        ->get();
 ```
 
+- ORDER BY in Method Chaining
+```
+$posts = DB::table('posts')
+        ->orderBy('id', 'desc')
+        ->get();
+```
 
+- PAGINATION in Method Chaining
+```
+$posts = DB::table('posts')
+        ->skip(30)
+        ->take(10)
+        ->get();
+```
+
+-SELECTING ONE (1) DATA in Method Chaining
+```
+$posts = DB::table('posts')
+        ->where('id', 100)
+        >first();
+```
+
+### Returning and Interesting method in Query Builder
+- get() method - Returning method for query builder
+- first() method - Return with limit of 1
+- find() method - Return the specific value inside the find method
+- count() method - Return the row count
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

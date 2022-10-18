@@ -17,9 +17,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
-            ->where('is_published', true)
-            ->where('id', '>', 50)
-            ->get();
+            ->where('id', 100)
+            ->first();
 
         dd($posts);
 
