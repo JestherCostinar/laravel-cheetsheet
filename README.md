@@ -400,11 +400,11 @@ $posts = DB::table('posts')
         ->where('id', '>', 50)
         ->get();
 ```
->whereBetween('Column Name', [from, to])
->whereNotBetween('Column Name', [from, to])
->whereIn('Column Name', [LIST OF VALUE])
->whereNull('Column Name')
->whereNotNull('Column Name')
+>- whereBetween('Column Name', [from, to]) <br>
+>- whereNotBetween('Column Name', [from, to])<br>
+>- whereIn('Column Name', [LIST OF VALUE]) <br>
+>- whereNull('Column Name')<br>
+>- whereNotNull('Column Name')
 
 - SELECT DISTINCT in Method Chaining
 ```
