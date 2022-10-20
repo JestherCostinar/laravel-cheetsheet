@@ -16,13 +16,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')
-            ->where('id', 100)
-            ->first();
+        $data = [
+            'posts' => DB::table('posts')->get()
+        ];
 
-        dd($posts);
-
-        return view('blog.index');
+        return view('blog.index', $data);
     }
 
     /**

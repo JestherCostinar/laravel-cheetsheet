@@ -454,6 +454,35 @@ Now, to install tailwind. perform this code in CLI.
 npm install -D tailwindcss postcss autoprefixer
 ```
 
+## 18. Variable and Control Structure in blade file
+Laravel use blase as a custom templating engine. You can use plain PHP code in Laravel Blade.
+
+### 3 ways how to pass data to view
+
+- Pass data using array
+```
+$data = [
+    'posts' => DB::table('posts')->get()
+];
+
+return view('blog.index', $data);
+```
+> This approach is the recommended way to pass data to view and the popular way.
+
+- Chaining the with method to pass the data
+```
+$posts => DB::table('posts')->get();
+
+return view('blog.index')->with('posts', $posts);
+```
+
+-Using the compact method to pass the data
+```
+$posts => DB::table('posts')->get();
+
+return view('blog.index', compact('posts'));
+```
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
