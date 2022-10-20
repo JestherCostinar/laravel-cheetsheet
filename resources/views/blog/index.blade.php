@@ -15,5 +15,25 @@
         <p>No posts have been set</p>
     @endforelse
 
+    @if (count($posts) > 100)
+        {{ dd($posts) }}
+    @elseif (count($posts) === 102)
+        <h1>
+            You have exactly 102 posts
+        </h1>
+    @else
+        <h1>
+            No Posts
+        </h1>
+    @endif
+
+    @unless (!$posts)
+        <h1>
+            Posts has been added
+        </h1>
+    @endunless
+
+        
+    @endunless
 </body>
 </html>

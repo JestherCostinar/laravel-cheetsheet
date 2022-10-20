@@ -459,7 +459,7 @@ Laravel use blase as a custom templating engine. You can use plain PHP code in L
 
 ### 3 ways how to pass data to view
 
-- Pass data using array
+- Pass data as an array in second parameter
 ```
 $data = [
     'posts' => DB::table('posts')->get()
@@ -482,6 +482,65 @@ $posts => DB::table('posts')->get();
 
 return view('blog.index', compact('posts'));
 ```
+
+<hr>
+
+### Blade Syntax
+
+- If statement in Blade
+```
+@if (count($posts) > 100)
+    {{ dd($posts) }}
+ @endif
+```
+
+- If.. Else.. statement in Blade
+```
+@if (count($posts) > 100)
+    {{ dd($posts) }}
+@else
+    <h1>
+        No Posts
+    </h1>
+@endif
+```
+
+- If.. Elseif.. Else.. statement in Blade
+```
+@if (count($posts) > 100)
+    {{ dd($posts) }}
+@elseif (count($posts) === 102)
+    <h1>
+         You have exactly 102 posts
+    </h1>
+@else
+    <h1>
+        No Posts
+    </h1>
+@endif
+```
+
+- Unless statement in Blade
+```
+@unless (!$posts)
+    <h1>
+        Posts has been added
+    </h1>
+@endunless
+```
+> This code is equivalent to "<em><strong>if($posts)<em><strong>"
+
+- forelse statement in Blade
+forelse is same with foreach but it allow to have fallback if iteration is empty
+
+```
+@forelse ($posts as $post )
+    {{ $loop->first }}
+@empty
+    <p>No posts have been set</p>
+@endforelse
+```
+
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
