@@ -32,8 +32,5 @@
             Posts has been added
         </h1>
     @endunless
-
-        
-    @endunless
-</body>
+    </body>
 </html>

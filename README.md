@@ -476,7 +476,7 @@ $posts => DB::table('posts')->get();
 return view('blog.index')->with('posts', $posts);
 ```
 
--Using the compact method to pass the data
+- Using the compact method to pass the data
 ```
 $posts => DB::table('posts')->get();
 
@@ -540,6 +540,9 @@ forelse is same with foreach but it allow to have fallback if iteration is empty
     <p>No posts have been set</p>
 @endforelse
 ```
+
+## 19. Eloquent
+Laravel most imporant feature is Eloquent. Eloquent in laravel is Object Relatational Model (ORM) which helps to interact with database record much easier.
 
 
 ## 👨‍💻Contact Me 🚀🔵
