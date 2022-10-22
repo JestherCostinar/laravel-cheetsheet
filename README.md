@@ -577,7 +577,8 @@ $posts = Post::where('min_to_read','2')->get();
 ```
 > The where() method has 3 parameter (Column name, Comparison operator, 'Value')
 
-- Retrievig Data usig chunk() method
+- Retrievig Data using chunk() method
+
 Laravel eloquent chunk method break the large group of data set into smaller group of data set. Chunk is mostly used when working on big laravel apps and work with large group of records from the database.
 
 ```
