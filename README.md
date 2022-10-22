@@ -544,6 +544,20 @@ forelse is same with foreach but it allow to have fallback if iteration is empty
 ## 19. Eloquent
 Laravel most imporant feature is Eloquent. Eloquent in laravel is Object Relatational Model (ORM) which helps to interact with database record much easier.
 
+Whenever you want to use eloquent, Interaction goes to model. To create a model. Perform this command to CLI.
+```
+php artisan make:model ModelName
+```
+
+Some attributes in Model
+- protected $table = 'posts';
+- protected $primaryKey = 'id';
+- protected $timestamps = false;
+- protected $dataTime = 'U';
+- protected $connection = 'sqlite';
+- protected $attributes = ['is_published' => true];
+
+
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
