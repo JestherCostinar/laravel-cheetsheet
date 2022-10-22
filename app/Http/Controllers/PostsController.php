@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use VARIANT;
 
 class PostsController extends Controller
 {
@@ -16,11 +16,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $data = [
-            'posts' => DB::table('posts')->get()
-        ];
-
-        return view('blog.index', $data);
+        return view('blog.index', [
+            'posts' => Post::orderBy('id', 'desc')->get()
+        ]);
     }
 
     /**
@@ -52,7 +50,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return $id;
+        return view('blog.show', [
+            'post' => Post::findOrFail($id)
+        ]);
     }
 
     /**

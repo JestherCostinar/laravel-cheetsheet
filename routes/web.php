@@ -53,7 +53,7 @@ Route::prefix('/blog')->group(function() {
 // Route::match(['GET', 'POST'], '/blog', [PostsController::class, 'index']);
 // Route::any('/blog', [PostsController::class, 'index']);
 
-// // Return only a view
+// // Return only a1 view
 // Route::view('/blog', 'blog.index', ['name' => 'Jesther Costinar']);
 
 

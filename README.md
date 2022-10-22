@@ -557,7 +557,52 @@ Some attributes in Model
 - protected $connection = 'sqlite';
 - protected $attributes = ['is_published' => true];
 
+## 20. Retrieving data using Eloquent
+Retrieving data happens inside the Controller.
 
+- Retrieving Data using find() method
+```
+$posts = Post::all();
+```
+
+- Retrieving Data using get() method
+```
+$posts = Post::orderBy('id', 'desc')->take(10)->get();
+```
+>The difference between get() and all() is that you can chain method in get() method
+
+- Retrieving Data using where() method
+```
+$posts = Post::where('min_to_read','2')->get();
+```
+> The where() method has 3 parameter (Column name, Comparison operator, 'Value')
+
+- Retrievig Data usig chunk() method
+Laravel eloquent chunk method break the large group of data set into smaller group of data set. Chunk is mostly used when working on big laravel apps and work with large group of records from the database.
+
+```
+Post::chunk(25, function($posts) {
+    foreach($posts as $post) {
+        echo $post->title . '<br>';
+    }
+});
+```
+
+- Retrieving sorted data using orderBy() method
+```
+return view('blog.index', [
+    'posts' => Post::orderBy('id', 'desc')->get()
+]);
+```
+
+- Retrieving specific data in show($id) method
+```
+return view('blog.show', [
+    'post' => Post::findOrFail($id)
+]);
+```
+>findOrFail() method will return data if the data exist and will return 404 if not.
+>find() method will return the data 
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
