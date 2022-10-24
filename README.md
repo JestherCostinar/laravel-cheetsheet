@@ -633,6 +633,53 @@ Post::create([
 
 return redirect(route('blog.index'));
 ```
+## 23. Insert file in Laravel
+First thing to consider when Inseting data using Eloquent is to have the model for the table. 
+> Each database table has a corresponding "Model" that is used to interact with that table
+
+```
+Post::create([
+    'title' => $request->title,
+    'excerpt' => $request->excerpt,
+    'body' => $request->body,
+    'image_path' => 'temporary',
+    'is_published' => $request->is_published === 'on',
+    'min_to_read' => $request->min_to_read
+]);
+
+return redirect(route('blog.index'));
+```
+
+## 23. Validation in Laravel
+
+Validate the request sending to controller
+```
+$request->validate([
+    'title' => 'required|unique:posts|max:255',
+    'excerpt' => 'required',
+    'body' => 'required',
+    'image' => ['required', 'mimes:png,jpg,jpeg', 'max:5048'],
+    min_to_read' => 'min:0|max:60'
+]);
+```
+
+To output the erros in view/blade
+```
+<div class="pb-8">
+    @if ($errors->any())
+        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Something went wrong...
+        </div>
+        <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+             @foreach ($errors->all() as $error)
+                <li class="list-none">
+                    {{ $error }}
+                </li>
+            @endforeach
+        </div>
+    @endif
+</div>
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
