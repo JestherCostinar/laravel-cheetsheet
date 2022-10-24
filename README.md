@@ -784,7 +784,22 @@ The most use case of pagination in laravel is when you working in large set of d
 {{ $posts->links() }}
 ```
 
-## 27. One to Many Relationship
+## 27. Middleware
+Middleware provide a convenient mechanism for inspecting and filtering HTTP requests entering your application. It prevent user not to view the page that is only for authenticated users.
+
+### Two (2) ways to define middleware
+- Via Web.php
+```
+Route::resource('blog', PostsController::class)->middleware(['auth']);
+```
+
+- Via Controller
+```
+public function __construct()
+{
+    $this->middleware('auth')->only(['create', 'edit', 'update', 'destroy']);
+}
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
