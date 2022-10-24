@@ -771,6 +771,19 @@ if (in_array($this->method(), ['POST'])) {
 return $rules;
 ```
 
+## 27. Pagination
+The most use case of pagination in laravel is when you working in large set of data.
+
+- The pagination is use in the end of the query. To use the pagination using Eloquent:
+```
+'posts' => Post::orderBy('id', 'desc')->paginate(10)
+```
+
+- To have the pagination in blade/view file add this code below
+```
+{{ $posts->links() }}
+```
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
