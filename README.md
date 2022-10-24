@@ -605,8 +605,17 @@ return view('blog.show', [
 >findOrFail() method will return data if the data exist and will return 404 if not.
 >find() method will return the data 
 
-## 21. Output data in blade
+## 21. Output in blade
 
+Outputting data in blade is very simple you just have to iterate the data coming from PostsController. Just like the following:
+
+```
+@foreach ($posts as $post)
+<h1>
+    {{ $post->title }}    
+</h1>
+@endforeach
+```
 
 
 ## 👨‍💻Contact Me 🚀🔵

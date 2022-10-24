@@ -28,7 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return 'Create in Posts Controller';
+        return view('blog.create');
     }
 
     /**
@@ -39,7 +39,24 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'title' => 'required|unique:posts|max:255',
+        //     'excerpt' => 'required',
+        //     'body' => 'required',
+        //     'image' => ['required', 'mimes:png,jpg,jpeg', 'max:5048'],
+        //     'min_to_read' => 'min:0|max:60'
+        // ])
+        
+        Post::create([
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' => $request->body,
+            'image_path' => 'temporary',
+            'is_published' => $request->is_published === 'on',
+            'min_to_read' => $request->min_to_read
+        ]);
+
+        return redirect(route('blog.index'));
     }
 
     /**
