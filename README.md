@@ -742,6 +742,35 @@ return redirect(route('blog.index'))->with('message', 'Post has been deleted');
     </div>
 @endif
 ```
+
+## 26. Form Request
+As you can see in our update() and store() method some code for form request is repeated. To avoid that we can use custom form request
+
+- To create a Form Request, you may use this artisan command:
+```
+php artisan make:request PostFormRequest
+```
+
+- The authorize() method in Form Request authorize login in your application
+> Just return True to set authorize
+
+- The rules() method return the validation rules for the request data
+```
+$rules = [
+    'title' => 'required|max:255|unique:posts,title,' . $this->id,
+    'excerpt' => 'required',
+    'body' => 'required',
+    'image' => ['mimes:png,jpg,jpeg', 'max:5048'],
+    'min_to_read' => 'min:0|max:60'
+];
+        
+if (in_array($this->method(), ['POST'])) {
+    $rules['image'] = ['required', 'mimes:png,jpg,jpeg', 'max:5048'];
+}
+
+return $rules;
+```
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
