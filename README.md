@@ -681,6 +681,38 @@ To output the erros in view/blade
 </div>
 ```
 
+## 24. Updating Data using Eloquent
+To update data in Controller, you need first pass the id from blade to controller
+```
+href="{{ route('blog.edit', $post->id) }}"
+```
+
+Now, In Edit.blade.php change the request method to patch and the form action
+```
+<form action="{{ route('blog.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+@csrf
+@method('PATCH')
+```
+
+Its time to edit the data inside the controller
+```
+$request->validate([
+    'title' => 'required|max:255|unique:posts,title,' . $id,
+    'excerpt' => 'required',
+    'body' => 'required',
+    'image' => ['mimes:png,jpg,jpeg', 'max:5048'],
+    'min_to_read' => 'min:0|max:60'
+]);
+
+Post::where('id', $id)->update($request->except([
+        '_token', '_method'
+    ])
+);
+
+return redirect(route('blog.index'));
+```
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/

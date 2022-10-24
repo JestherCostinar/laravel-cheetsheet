@@ -42,8 +42,8 @@ Route::prefix('/blog')->group(function() {
     Route::post('/blog', [PostsController::class, 'store'])->name('blog.store');
 
     // PUT or PATCH
-    Route::get('/edit/{id}', [PostsController::class, 'edit']);
-    Route::patch('/{id}', [PostsController::class, 'update']);
+    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
+    Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
 
     // DELETE
     Route::delete('/{id}', [PostsController::class, 'destroy']);
