@@ -528,7 +528,7 @@ return view('blog.index', compact('posts'));
     </h1>
 @endunless
 ```
-> This code is equivalent to "<em><strong>if($posts)<em><strong>"
+> This code is equivalent to "<em><strong>if($posts)</em></strong>"
 
 - forelse statement in Blade
 forelse is same with foreach but it allow to have fallback if iteration is empty
@@ -617,6 +617,22 @@ Outputting data in blade is very simple you just have to iterate the data coming
 @endforeach
 ```
 
+## 22. Insert data using Eloquent
+First thing to consider when Inseting data using Eloquent is to have the model for the table. 
+> Each database table has a corresponding "Model" that is used to interact with that table
+
+```
+Post::create([
+    'title' => $request->title,
+    'excerpt' => $request->excerpt,
+    'body' => $request->body,
+    'image_path' => 'temporary',
+    'is_published' => $request->is_published === 'on',
+    'min_to_read' => $request->min_to_read
+]);
+
+return redirect(route('blog.index'));
+```
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
