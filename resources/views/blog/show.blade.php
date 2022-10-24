@@ -6,6 +6,18 @@
         content="width=device-width, initial-scale=1.0"
     />
     <meta
+        name="description"
+        content="{{ $post->meta->meta_description ? $post->meta->meta_description : '' }}"
+    />
+    <meta
+        name="keywords"
+        content="{{ $post->meta->meta_keywords ? $post->meta->meta_keywords : '' }}"
+    />
+    <meta
+        name="robots"
+        content="{{ $post->meta->meta_robots ? $post->meta->meta_keywords : '' }}"
+    />
+    <meta
         http-equiv="X-UA-Compatible"
         content="ie=edge"
     />

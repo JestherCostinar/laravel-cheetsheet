@@ -784,6 +784,8 @@ The most use case of pagination in laravel is when you working in large set of d
 {{ $posts->links() }}
 ```
 
+## 27. One to Many Relationship
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/

@@ -10,12 +10,13 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 
-        'excerpt', 
-        'body', 
-        'image_path', 
-        'is_published', 
-        'min_to_read'
+        'user_id',
+        'title',
+        'excerpt',
+        'body',
+        'image_path',
+        'is_published',
+        'min_to_read',
     ];
 
     // protected $table = 'posts';
@@ -26,4 +27,14 @@ class Post extends Model
     protected $attributes = [
         'is_published' => true
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function meta()
+    {
+        return $this->hasOne(PostMeta::class);
+    }
 }
