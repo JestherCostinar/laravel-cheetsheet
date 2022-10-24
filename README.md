@@ -712,7 +712,36 @@ Post::where('id', $id)->update($request->except([
 return redirect(route('blog.index'));
 ```
 
+## 25. Deleting Data using Eloquent
+To delete a data using Eloquent you need to setup the route action in blade file
+```
+<form action="{{ route('blog.destroy', $post->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button class="pt-3 text-red-500 pr-3" type="submit">Delete</button>
+</form>
+```
 
+and you can now do the destroy of data in controller
+```
+Post::destroy($id);
+
+return redirect(route('blog.index'))->with('message', 'Post has been deleted');
+```
+
+> To return a message to the blade/view
+```
+@if (session()->has('message'))
+    <div class="mx-auto w-4/5 pb-10">
+        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Warning
+        </div>
+        <div class="border border-t-1 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            {{ session()->get('message') }}
+        </div>
+    </div>
+@endif
+```
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
